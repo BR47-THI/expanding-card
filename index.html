@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding Cards</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script type="module" src="./javascript/main.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div
+          v-for="(image, index) in imgData"
+          :key="image.name"
+          :class="['panel', { active: activeIndex === index }]"
+          :style="{ backgroundImage: `url(${image.src})` }"
+          @click="toggleActive(index)"
+        >
+          <h3>{{ image.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
